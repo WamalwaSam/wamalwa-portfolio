@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Wamalwa Sam</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Wamalwa Sam</span>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap" style="padding-top:48px;">
+
+    <section>
+      <h2>AWS 3-Tier Web Application</h2>
+
+      <p><strong>The problem.</strong> I wanted to understand how a 3-tier architecture actually works in production — not the diagram version, the operational one: what each layer does, how traffic moves through it, and what breaks it.</p>
+
+      <p><strong>What I did.</strong> I designed and deployed the full stack myself: Route 53 for DNS resolution, a WAF in front to filter malicious traffic such as SQL injection attempts, an Application Load Balancer distributing traffic across two Availability Zones, web and application tiers behind it, a NAT Gateway translating private to public IPs for outbound traffic, and an autoscaling group to handle load. The AZ split was deliberate: the ALB runs continuous health checks, and if one AZ fails, traffic routes to healthy instances automatically, without manual intervention. I documented the full design and am still testing it further — removing individual components to observe exactly how the system degrades and recovers.</p>
+
+      <p><strong>What came of it.</strong> A working, documented architecture with a tested failover path, published as a technical write-up. I understand this system well enough to explain every decision in it, not just operate it.</p>
+
+      <div class="diagram-frame">
+        <img class="responsive" src="images/architecture-diagram.png" alt="AWS 3-tier architecture diagram showing Route 53, WAF, CloudFront, ALB, and two Availability Zones each with NAT gateway, web server, app server, and RDS database">
+      </div>
+
+      <p><a href="https://medium.com/@wamalwasam/an-aws-3-tier-architecture-design-model-fd6f1143d782">Read the full write-up on Medium →</a></p>
+    </section>
+
+    <section>
+      <a href="contact.html" class="btn secondary">Get in touch</a>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Wamalwa Sam</div>
+</footer>
+
+</body>
+</html>
